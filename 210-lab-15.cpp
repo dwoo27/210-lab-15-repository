@@ -23,12 +23,14 @@ public:
     void setWriter(string);
 };
 
-void finMovies(array<Movie, MOVIES>&);
-void coutMovies(array<Movie, MOVIES>&);
+void finMovies(array<Movie, MOVIES>&); //reads txt file and populates array
+void coutMovies(array<Movie, MOVIES>&); //outputs container info
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    array<Movie, MOVIES> movies; //create array of movie obj
+    finMovies(movies); //populate array
+    coutMovies(movies); //ouput array info
 }
 
 void Movie::print() {
@@ -52,7 +54,7 @@ void Movie::setTitle(string title) {
     this->title = title;
 }
 void Movie::setYear(int year) {
-    this->year = year
+    this->year = year;
 }
 void Movie::setWriter(string writer) {
     this->writer = writer;
