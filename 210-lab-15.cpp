@@ -31,21 +31,42 @@ int main()
     std::cout << "Hello World!\n";
 }
 
-void print() {
+void Movie::print() {
     cout << "Movie: " << title << endl;
     cout << "  Year released: " << yearReleased << endl;
     cout << "  Screenwriter: " << screenWrtier << endl;
 }
 
-string getTitle() const {
+string Movie::getTitle() const {
     return title;
 }
 
-int getYear() const [
+int Movie::getYear() const {
     return year;
-]
-string getWriter() const;
+}
+string Movie::getWriter() const {
+    return writer;
+}
 
-void setTitle(string);
-void setYear(int);
-void setWriter(string);
+void Movie::setTitle(string title) {
+    this->title = title;
+}
+void Movie::setYear(int year) {
+    this->year = year
+}
+void Movie::setWriter(string writer) {
+    this->writer = writer;
+}
+
+void finMovies(array<Movie, MOVIES>& movies) {
+    ifstream fin;
+    fin.open("input.txt");
+    string buf;
+
+    if (fin.good()) {
+
+    }
+    else {
+        cout << "File not found." << endl;
+    }
+}
