@@ -33,8 +33,8 @@ int main()
 
 void Movie::print() {
     cout << "Movie: " << title << endl;
-    cout << "  Year released: " << yearReleased << endl;
-    cout << "  Screenwriter: " << screenWrtier << endl;
+    cout << "  Year released: " << year << endl;
+    cout << "  Screenwriter: " << writer << endl;
 }
 
 string Movie::getTitle() const {
@@ -61,12 +61,34 @@ void Movie::setWriter(string writer) {
 void finMovies(array<Movie, MOVIES>& movies) {
     ifstream fin;
     fin.open("input.txt");
-    string buf;
+    string tempTitle, tempYear, tempWriter;
 
     if (fin.good()) {
+        for (int i = 0; i < MOVIES; i++) { //for each set of 3 lines, loop takes info
+            getline(fin, tempTitle);
+            getline(fin, tempYear);
+            getline(fin, tempWriter);
 
+            Movie temp; //creates new temp object for each iteration
+            temp.setTitle(tempTitle); //populates object with read info
+            temp.setYear(atoi(tempYear.c_str()));
+            temp.setWriter(tempWriter);
+
+            movies[i] = temp;
+
+       }
+
+        fin.close();
+    
     }
     else {
         cout << "File not found." << endl;
+    }
+}
+
+void coutMovies(array<Movie, MOVIES>& movies) {
+    for (int i = 0; i < MOVIES; i++) {
+        movies[i].print();
+        cout << endl;
     }
 }
